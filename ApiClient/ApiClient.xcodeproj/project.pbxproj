@@ -16,6 +16,10 @@
 		FA1B3C7B2796283000DB0168 /* SampleApi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1B3C7A2796283000DB0168 /* SampleApi.framework */; };
 		FA1B3C7C2796283000DB0168 /* SampleApi.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA1B3C7A2796283000DB0168 /* SampleApi.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		FAB145502797239500FD5DF2 /* CollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1454F2797239500FD5DF2 /* CollectionViewCell.swift */; };
+		FAD27E4627973E73008770A8 /* API+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAD27E4527973E73008770A8 /* API+Rx.swift */; };
+		FAD27E4927973E93008770A8 /* RxCocoa in Frameworks */ = {isa = PBXBuildFile; productRef = FAD27E4827973E93008770A8 /* RxCocoa */; };
+		FAD27E4B27973E93008770A8 /* RxRelay in Frameworks */ = {isa = PBXBuildFile; productRef = FAD27E4A27973E93008770A8 /* RxRelay */; };
+		FAD27E4D27973E93008770A8 /* RxSwift in Frameworks */ = {isa = PBXBuildFile; productRef = FAD27E4C27973E93008770A8 /* RxSwift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -43,6 +47,7 @@
 		FA1B3C672796273700DB0168 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA1B3C7A2796283000DB0168 /* SampleApi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = SampleApi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB1454F2797239500FD5DF2 /* CollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewCell.swift; sourceTree = "<group>"; };
+		FAD27E4527973E73008770A8 /* API+Rx.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "API+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -50,6 +55,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD27E4B27973E93008770A8 /* RxRelay in Frameworks */,
+				FAD27E4927973E93008770A8 /* RxCocoa in Frameworks */,
+				FAD27E4D27973E93008770A8 /* RxSwift in Frameworks */,
 				FA1B3C7B2796283000DB0168 /* SampleApi.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -77,6 +85,7 @@
 		FA1B3C582796273500DB0168 /* ApiClient */ = {
 			isa = PBXGroup;
 			children = (
+				FAD27E4427973E65008770A8 /* Rx */,
 				FA1B3C592796273500DB0168 /* AppDelegate.swift */,
 				FA1B3C5B2796273500DB0168 /* SceneDelegate.swift */,
 				FA1B3C5D2796273500DB0168 /* ViewController.swift */,
@@ -97,6 +106,14 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		FAD27E4427973E65008770A8 /* Rx */ = {
+			isa = PBXGroup;
+			children = (
+				FAD27E4527973E73008770A8 /* API+Rx.swift */,
+			);
+			path = Rx;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -114,6 +131,11 @@
 			dependencies = (
 			);
 			name = ApiClient;
+			packageProductDependencies = (
+				FAD27E4827973E93008770A8 /* RxCocoa */,
+				FAD27E4A27973E93008770A8 /* RxRelay */,
+				FAD27E4C27973E93008770A8 /* RxSwift */,
+			);
 			productName = ApiClient;
 			productReference = FA1B3C562796273500DB0168 /* ApiClient.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +164,9 @@
 				Base,
 			);
 			mainGroup = FA1B3C4D2796273500DB0168;
+			packageReferences = (
+				FAD27E4727973E93008770A8 /* XCRemoteSwiftPackageReference "RxSwift" */,
+			);
 			productRefGroup = FA1B3C572796273500DB0168 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -170,6 +195,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FA1B3C5E2796273500DB0168 /* ViewController.swift in Sources */,
+				FAD27E4627973E73008770A8 /* API+Rx.swift in Sources */,
 				FA1B3C5A2796273500DB0168 /* AppDelegate.swift in Sources */,
 				FAB145502797239500FD5DF2 /* CollectionViewCell.swift in Sources */,
 				FA1B3C5C2796273500DB0168 /* SceneDelegate.swift in Sources */,
@@ -392,6 +418,35 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		FAD27E4727973E93008770A8 /* XCRemoteSwiftPackageReference "RxSwift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ReactiveX/RxSwift";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		FAD27E4827973E93008770A8 /* RxCocoa */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD27E4727973E93008770A8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxCocoa;
+		};
+		FAD27E4A27973E93008770A8 /* RxRelay */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD27E4727973E93008770A8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxRelay;
+		};
+		FAD27E4C27973E93008770A8 /* RxSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = FAD27E4727973E93008770A8 /* XCRemoteSwiftPackageReference "RxSwift" */;
+			productName = RxSwift;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = FA1B3C4E2796273500DB0168 /* Project object */;
 }
