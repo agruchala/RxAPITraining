@@ -7,6 +7,7 @@
 
 import UIKit
 import SampleApi
+import RxSwift
 
 class ViewController: UIViewController {
     
@@ -26,6 +27,8 @@ class ViewController: UIViewController {
         }
     }
     
+    let disposeBag = DisposeBag() // add dispose bag
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         collectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -42,12 +45,12 @@ class ViewController: UIViewController {
         collectionView.dataSource = self
         collectionView.delegate = self
         
-        api.getImages { images, error in
-            guard let images = images else { return }
-            DispatchQueue.main.async { [unowned self] in
-                self.images = images
-            }
-        }
+        api.rx.getImages
+            .observe(on: MainScheduler.instance)
+            .subscribe(onSuccess: { [unowned self] in
+                self.images = $0
+            })
+            .disposed(by: disposeBag)
     }
 }
 

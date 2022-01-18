@@ -10,9 +10,13 @@ import SampleApi
 
 extension ImageApi: ReactiveCompatible { }
 
+// 1
 extension Reactive where Base: ImageApi {
+    // 2
     var getImages: Single<[Image]> {
+        // 3
         Single.create { single in
+            // 4
             base.getImages { images, error in
                 if let error = error {
                     single(.failure(error))
@@ -24,7 +28,8 @@ extension Reactive where Base: ImageApi {
                 }
                 single(.success(images))
             }
-            return Disposables.create()
+            // 5
+            return Disposables.create { }
         }
     }
 }
